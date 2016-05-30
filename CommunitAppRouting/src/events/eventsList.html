@@ -1,0 +1,7 @@
+<template>
+    <div repeat.for="event of events">
+        <compose model.bind="event" view="events/event.html"></compose>
+    </div>
+    <div>
+        <button type="button" click.trigger="goToDiscussion()">Go To Discussion</button></div>
+</template>

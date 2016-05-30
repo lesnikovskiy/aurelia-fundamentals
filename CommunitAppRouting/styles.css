@@ -1,0 +1,9 @@
+.rbox {
+    border-radius: 15px;
+    border: 2px solid #8AC007;
+    padding: 10px;
+    margin-top:5px;
+}
+.rbox + .rbox {
+    margin-top: 0;
+}

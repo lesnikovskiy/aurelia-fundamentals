@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript" src="jspm_packages/system.js"></script>
+	<script type="text/javascript" src="config.js"></script>
+	<script type="text/javascript">
+		System.import("SimpleClass").then(useSimple, handleError);
+		
+		function useSimple(module) {
+			var mySimple = new module.SimpleClass();
+			console.log(mySimple.message);
+			console.log(mySimple.calculate());
+			console.log(mySimple.someBaseMethod());
+			mySimple.startEngine().then(function(result) {
+				console.log(result);
+			});
+		}	
+
+		function handleError() {
+			console.log('Error');
+		}
+	</script>
+</body>
+</html>

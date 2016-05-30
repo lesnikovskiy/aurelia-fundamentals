@@ -1,0 +1,11 @@
+<template>
+    <style type="text/css">
+        .nav-tabs li a {font-size:20px;}
+    </style>
+    <ul class="nav nav-tabs">
+        <li repeat.for="route of router.navigation" class="${route.isActive ? 'active' : ''}">
+            <a href.bind="route.href">${route.title}</a>
+        </li>
+    </ul>
+    <router-view></router-view>
+</template>

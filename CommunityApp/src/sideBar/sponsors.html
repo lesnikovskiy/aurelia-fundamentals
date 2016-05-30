@@ -1,0 +1,23 @@
+<template>
+    <div textContext.one-time="message"></div>
+    <button type="button" click.delegate="doSomething(message)">Click Me</button>
+    <input type="text" ref="input1">
+    <div>${input1.value & debounce: 1000}</div>
+    
+    <div repeat.for="[key, value] of mapCollection">${key} : ${value}</div>
+    
+    <input type="text" value.bind="person.firstName & debounce: 3000">
+    <input type="text" value.bind="person.lastName & throttle: 3000">
+    ${person.fullName & oneWay}
+    
+    <require from="common/freshness"></require>
+    <div repeat.for="trade of trades" css="background: ${trade.time | freshness & signal: 'check-freshness'}">${trade.amount}</div>
+    
+    <!--<div textContent.one-time="message" css="background: ${customerStatus === 'bad' ? 'red' : ''}"></div>
+    <button type="button" click.delegate="doSomething(message)">Click Me</button>    
+    <input style="background: ${customerColor}" type="text" ref="input1">
+    <div style.bind="styleString">${input1.value}</div>
+    <div style.bind="styleObject" repeat.for="[key, value] of mapCollection">
+        ${key} : ${value}
+    </div>-->
+</template>

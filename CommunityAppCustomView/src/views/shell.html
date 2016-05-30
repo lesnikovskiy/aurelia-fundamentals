@@ -1,0 +1,35 @@
+<template>
+    <require from="bootstrap/css/bootstrap.css"></require>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="pull-left">
+                    <img src="http://aurelia.io/images/main-logo.svg">
+                </a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <u class="nav navbar-nav">
+                    <li class="active"><a href="#">Events <span class="sr-only">(current)</span> </a></li>
+                    <li><a href="#">Discussion</a></li>
+                    <li><a href="#">Job Board</a></li>
+                </u>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="col-xs-10">
+            <compose view-model="viewmodels/events" view="views/events.html"></compose>
+        </div>
+        <div class="col-xs-2">
+            <compose view-model="viewmodels/sponsors"></compose>
+        </div>
+    </div>
+</template>
