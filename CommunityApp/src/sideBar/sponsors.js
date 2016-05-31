@@ -27,6 +27,11 @@ export class Sponsors {
     doSomething(msg) {
         console.log(msg);
     }
+    
+    myinterceptor(method, update, value) {
+        console.log(value);
+        update(value);
+    }
 }
 
 class Person {

@@ -13,6 +13,9 @@
     <require from="common/freshness"></require>
     <div repeat.for="trade of trades" css="background: ${trade.time | freshness & signal: 'check-freshness'}">${trade.amount}</div>
     
+    <require from="common/interceptor"></require>
+    <input type="text" value.bind="someProperty & interceptor:myinterceptor">
+    <div>${someProperty}</div>
     <!--<div textContent.one-time="message" css="background: ${customerStatus === 'bad' ? 'red' : ''}"></div>
     <button type="button" click.delegate="doSomething(message)">Click Me</button>    
     <input style="background: ${customerColor}" type="text" ref="input1">
