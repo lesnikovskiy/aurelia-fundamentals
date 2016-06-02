@@ -1,0 +1,26 @@
+<template>
+    <!--To use custom formatter either include it in view or use global resources-->
+    <!-- aurelia.use.globalResources("common/dateFormat"); in main.js -->
+    <!--<require from="common/dateFormat"></require>-->
+    
+   <div class="bg-success rbox">
+       <table>
+           <tr>
+               <td>
+                   <a href.bind="event.detailUrl">
+                       <h3 textContent.bind="event.title"></h3>
+                   </a>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <h5>${event.dateTime | dateFormat}</h5>
+               </td>
+           </tr>
+           <tr>
+               <td innerHtml.bind="event.description | sanitizeHTML"></td>
+           </tr>
+       </table>
+       <div textContent.two-way="event.description" contenteditable="true"></div>
+   </div> 
+</template>

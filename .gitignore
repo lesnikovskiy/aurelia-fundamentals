@@ -12,5 +12,7 @@ esnext/jspm_packages
 esnext/node_modules
 CommunityApp/jspm_packages
 CommunityApp/node_modules
+CommunitAppDataBinding/jspm_packages
+CommunitAppDataBinding/node_modules
 jsenvdemo
 nav-skel

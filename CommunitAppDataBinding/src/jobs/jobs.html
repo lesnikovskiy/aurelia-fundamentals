@@ -1,0 +1,24 @@
+<template>
+    <h3>Job Listings</h3>
+    <button type="button" click.delegate="addJob()">
+        <img src="images/Add-New.png">
+    </button>
+    <table class="table table-striped">
+        <thread>
+            <tr>
+                <th>Title</th>
+                <th>Need Date</th>
+                <th>Location</th>
+                <th>Technologies</th>
+            </tr>
+        </thread>
+        <tbody>
+            <tr repeat.for="job of jobs">
+                <td>${job.title}</td>
+                <td>${job.needDate | dateFormat: 'MM/YYYY'}</td>
+                <td>${job.location.city},${job.location.state}</td>
+                <td>${job.jobSkills.join(', ')}</td>
+            </tr>
+        </tbody>
+    </table>
+</template>

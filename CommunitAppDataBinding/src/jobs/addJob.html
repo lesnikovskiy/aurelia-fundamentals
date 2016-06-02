@@ -1,0 +1,43 @@
+<template>
+    <form submit.delegate="save()">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input value.bind="job.title" type="text" id="title" class="form-control" placeholder="Title">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea value.bind="job.description" name="description" 
+                id="description" rows="5" class="form-control" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="needDate">Need Date</label>
+            <input value.bind="job.needDate | dateFormat: 'MM/YYYY' & updateTrigger: 'blur'" type="text" id="needDate" class="form-control" placeholder="Need Date">
+        </div>
+        <div class="form-group">
+            <label for="jobType">Job Type</label>
+            <label repeat.for="jobType of jobTypes">
+                <input type="radio" name="jobType" value.bind="jobType" checked.bind="$parent.job.jobType">
+                ${jobType}
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Job Skills</label>
+            <label repeat.for="jobSkill of jobSkills">
+                <input type="checkbox" value.bind="jobSkill" checked.bind="$parent.job.jobSkills">
+                ${jobSkill}
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input value.bind="job.location.city" type="text" id="city" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="state">State</label>
+            <select value.bind="job.location.state" name="state" id="state" class="form-control">
+                <option>Select State</option>
+                <option repeat.for="state of states" model.bind="state.abbreviation">${state.name} (${state.abbreviation})</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form> 
+</template>
