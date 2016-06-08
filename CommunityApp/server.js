@@ -36,6 +36,32 @@ router.get("/jobsData", function (req, res) {
 router.route("/jobsData").post(function(req, res) {
     console.log(req.body);
     jobsData.push(req.body);
+	
+	res.send(201);
+});
+
+router.route("/jobsData").put(function(req, res) {
+	jobsData.forEach(job => {
+		if (job.id === req.body.id) {
+			job.id = req.body.id;
+			job.title = req.body.title;
+			job.location = req.body.location;
+			job.skills = req.body.skills;
+			job.jobType = req.body.jobType;
+			job.needDate = req.body.needDate;
+			job.description = req.body.description;			
+		}
+	});
+	
+	res.sendStatus(200);
+});
+
+router.route("/jobsData/:id").delete(function(req, res) {
+	console.log(req.params);
+	jobsData.splice(jobsData.findIndex(function(element) {
+		return element.id === req.params.id;
+	}), 1);
+	res.sendStatus(200);	
 });
 
 router.get("/events", function (req, res) {
