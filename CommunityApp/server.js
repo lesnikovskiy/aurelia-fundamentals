@@ -29,10 +29,9 @@ router.route("/jobsData").post(function(req, res) {
 	res.send(201);
 });
 
-router.route("/jobsData").put(function(req, res) {
+router.route("/jobsData/:id").put(function(req, res) {
 	jobsData.forEach(job => {
-		if (job.id === req.body.id) {
-			job.id = req.body.id;
+		if (job.id === req.params.id) {
 			job.title = req.body.title;
 			job.location = req.body.location;
 			job.skills = req.body.skills;
