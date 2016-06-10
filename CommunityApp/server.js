@@ -19,18 +19,7 @@ fs.readFile("./sampleData/jobsData.json", "utf8", function (err, content) {
 });
 
 router.get("/jobsData", function (req, res) {
-    if (!jobsData.length) {
-        fs.readFile("./sampleData/jobsData.json", "utf8", function (err, content) {
-            if (err)
-                return res.send(500, err);
-            
-            jobsData = JSON.parse(content);
-
-            return res.json(jobsData);
-        });
-    } else {
-        res.json(jobsData);
-    }
+    res.json(jobsData);
 });
 
 router.route("/jobsData").post(function(req, res) {
@@ -61,6 +50,7 @@ router.route("/jobsData/:id").delete(function(req, res) {
 	jobsData.splice(jobsData.findIndex(function(element) {
 		return element.id === req.params.id;
 	}), 1);
+
 	res.sendStatus(200);	
 });
 
