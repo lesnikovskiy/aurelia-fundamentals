@@ -3,6 +3,7 @@ const app = module.exports = express();
 const bodyParser = require("body-parser");
 const router = express.Router();
 const fs = require("fs");
+const uuid = require("node-uuid");
 
 app.use(express.static("./"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,18 +19,20 @@ fs.readFile("./sampleData/jobsData.json", "utf8", function (err, content) {
     jobsData = JSON.parse(content);
 });
 
-router.get("/jobsData", function (req, res) {
+router.get("/jobs", function (req, res) {
     res.json(jobsData);
 });
 
-router.route("/jobsData").post(function(req, res) {
-    console.log(req.body);
-    jobsData.push(req.body);
+router.route("/jobs").post(function(req, res) {
+    var job = req.body;
+    job.id = uuid.v4();
+    console.log(job);
+    jobsData.push(job);
 	
 	res.send(201);
 });
 
-router.route("/jobsData/:id").put(function(req, res) {
+router.route("/jobs/:id").put(function(req, res) {
 	jobsData.forEach(job => {
 		if (job.id === req.params.id) {
 			job.title = req.body.title;
@@ -44,7 +47,7 @@ router.route("/jobsData/:id").put(function(req, res) {
 	res.sendStatus(200);
 });
 
-router.route("/jobsData/:id").delete(function(req, res) {
+router.route("/jobs/:id").delete(function(req, res) {
 	console.log(req.params);
 	jobsData.splice(jobsData.findIndex(function(element) {
 		return element.id === req.params.id;
@@ -94,5 +97,5 @@ let server = app.listen(8080, function () {
     let host = server.address().address;
     let port = server.address().port;
 
-    console.log("Example app listene", host, port);
+    console.log("Example app listening", host, port);
 });
