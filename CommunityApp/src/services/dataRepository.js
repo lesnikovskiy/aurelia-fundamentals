@@ -3,6 +3,7 @@ import {jobsData, states, jobTypes, jobSkills} from "services/jobsData";
 import moment from "moment";
 import {BindingSignaler} from "aurelia-templating-resources";
 import {inject} from "aurelia-framework";
+import {HttpClient} from "aurelia-http-client";
 
 function filterAndFormat(pastOrFuture, events) {
     var results = JSON.parse(JSON.stringify(events));
@@ -17,19 +18,27 @@ function filterAndFormat(pastOrFuture, events) {
     return results;
 }
 
-@inject(BindingSignaler)
+@inject(BindingSignaler, HttpClient)
 export class DataRepository {
-    constructor(bindingSignaler) {
+    constructor(bindingSignaler, httpClient) {
+        this.httpClient = httpClient;
         setInterval(() => bindingSignaler.signal("check-freshness"), 1000);
     }
     
     getEvents(pastOrFuture) {
         let promise = new Promise((resolve, reject) => {
             if (!this.events) {
-                setTimeout(_ => {
-                    this.events = eventsData.sort((a, b) => a.dateTime >= b.dateTime ? 1 : -1);
-                    resolve(filterAndFormat(pastOrFuture, this.events));
-                }, 10);
+                this.httpClient.get("http://localhost:8080/api/events")
+                    .then(result => {
+                        let data = JSON.parse(result.response);
+                        this.events = data.sort((a, b) => a.dateTime >= b.dateTime ? 1 : -1);
+
+                        resolve(filterAndFormat(pastOrFuture, this.events));
+                    });
+                // setTimeout(_ => {
+                //     this.events = eventsData.sort((a, b) => a.dateTime >= b.dateTime ? 1 : -1);
+                //     resolve(filterAndFormat(pastOrFuture, this.events));
+                // }, 10);
             } else {
                 resolve(filterAndFormat(pastOrFuture, this.events));
             }
