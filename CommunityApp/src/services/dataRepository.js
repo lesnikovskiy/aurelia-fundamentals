@@ -24,7 +24,7 @@ export class DataRepository {
         this.httpClient = httpClient;
         setInterval(() => bindingSignaler.signal("check-freshness"), 1000);
     }
-    
+
     getEvents(pastOrFuture) {
         let promise = new Promise((resolve, reject) => {
             if (!this.events) {
@@ -35,10 +35,6 @@ export class DataRepository {
 
                         resolve(filterAndFormat(pastOrFuture, this.events));
                     });
-                // setTimeout(_ => {
-                //     this.events = eventsData.sort((a, b) => a.dateTime >= b.dateTime ? 1 : -1);
-                //     resolve(filterAndFormat(pastOrFuture, this.events));
-                // }, 10);
             } else {
                 resolve(filterAndFormat(pastOrFuture, this.events));
             }

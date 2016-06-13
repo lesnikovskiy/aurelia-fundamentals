@@ -42,7 +42,7 @@
   {
     "id": 122,
     "description": "While Cloud Computing offers enormous economic savings, and scalability for large amounts of users and data as well as over large geographic areas, you have to think differently about how to build these applications. Distributed applications are susceptible to a wide variety of outages because you cannot avoid the effects of computer networks and scarce computing resources. Traditional on-premise applications have always been subject to some of these problems, but cloud computing exposes them publicly in ways that cannot be hidden. This talk will explain how to architect and build applications to be resilient under these conditions. It will also explain what aspects of traditional software architecture and design are the same, and which areas must evolve.",
-    "dateTime": "2013-01-22T23:30:00.000Z",
+    "dateTime": "2016-08-22T23:30:00.000Z",
     "title": "Architecting for Failure, Cloud Architecture is Different! (Michael Stiefel)",
     "speaker": "Michael Stiefel",
     "image": "MichaelStiefel.jpg"
@@ -90,7 +90,7 @@
   {
     "id": 136,
     "description": "Time IS money - ask Amazon.com.  The performance of your site impacts everything from revenue and customer satisfaction to bounce rate and search engine ranking.  And as much as 80% of your customer's load time does not appear in your web logs!   In this session we argue about what &quot;web performance&quot; means, look at ways it can be measured, and go through examples of the principles, best practices and design decisions that give your site maximum web performance.  ",
-    "dateTime": "2014-01-28T23:30:00.000Z",
+    "dateTime": "2017-01-28T23:30:00.000Z",
     "title": "Maximum Web Performance - Steve Albers",
     "speaker": "Steve Albers",
     "image": "SteveAlbers.jpg"
@@ -138,7 +138,7 @@
   {
     "id": 144,
     "description": "For the past 15 years, ASP.NET applications have worked pretty much the same way. In order to deploy a new application, you need to have IIS up and running with corresponding .NET dependencies installed.  Recently at TechEd 2014, the ASP.NET announced the next generation of ASP.NET applications that remove the dependency on IIS. We're talking self-hosted ASP.NET projects! We're talking ASP.NET projects that run off a thumb drive. We're talking ASP.NET projects that run on Mac and Linux. In this talk, we'll take a look at some of the latest bits to come out of Redmond and how your development experience is going to change over the next several years.",
-    "dateTime": "2014-07-22T22:30:00.000Z",
+    "dateTime": "2016-07-22T22:30:00.000Z",
     "title": "ASP.NET - The vNext Generation - Kevin Griffin (MVP)",
     "speaker": "Kevin Griffin",
     "image": "KevinGriffin.jpg"
