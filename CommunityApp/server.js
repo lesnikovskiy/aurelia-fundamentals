@@ -29,7 +29,7 @@ router.route("/jobs").post(function(req, res) {
     console.log(job);
     jobsData.push(job);
 	
-	res.send(201);
+	res.json(job);
 });
 
 router.route("/jobs/:id").put(function(req, res) {

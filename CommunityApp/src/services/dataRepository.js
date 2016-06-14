@@ -4,6 +4,7 @@ import moment from "moment";
 import {BindingSignaler} from "aurelia-templating-resources";
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
+import {HttpClient as HttpFetch, json} from "aurelia-fetch-client";
 
 function filterAndFormat(pastOrFuture, events) {
     var results = JSON.parse(JSON.stringify(events));
@@ -18,17 +19,19 @@ function filterAndFormat(pastOrFuture, events) {
     return results;
 }
 
-@inject(BindingSignaler, HttpClient)
+@inject(BindingSignaler, HttpClient, HttpFetch, "apiRoot")
 export class DataRepository {
-    constructor(bindingSignaler, httpClient) {
+    constructor(bindingSignaler, httpClient, httpFetch, apiRoot) {
         this.httpClient = httpClient;
+        this.httpFetch = httpFetch;
+        this.apiRoot = apiRoot;
         setInterval(() => bindingSignaler.signal("check-freshness"), 1000);
     }
 
     getEvents(pastOrFuture) {
         let promise = new Promise((resolve, reject) => {
             if (!this.events) {
-                this.httpClient.get("http://localhost:8080/api/events")
+                this.httpClient.get(`${this.apiRoot}api/events`)
                     .then(result => {
                         let data = JSON.parse(result.response);
                         this.events = data.sort((a, b) => a.dateTime >= b.dateTime ? 1 : -1);
@@ -48,20 +51,30 @@ export class DataRepository {
 
     addJob(job) {
         return new Promise((resolve, reject) => {
-            if (!this.jobs) {
-                this.jobs = jobsData;
-            }
-            this.jobs.push(job);
-            resolve(job);
+            this.httpFetch.fetch(`${this.apiRoot}api/jobs`, {
+                method: "POST",
+                body: json(job)
+            })
+            .then(response => response.json())
+            .then(data => {
+                this.jobs.push(data);
+                resolve(data);
+            }).catch(err => reject(err));
         })
     }
 
     getJobs() {
         return new Promise((resolve, reject) => {
             if (!this.jobs) {
-                this.jobs = jobsData;
+                this.httpFetch.fetch(`${this.apiRoot}api/jobs`)
+                    .then(response => response.json())
+                    .then(data => {
+                        this.jobs = data;
+                        resolve(this.jobs);
+                    }).catch(err => reject(err));
+            } else {
+                resolve(this.jobs);
             }
-            resolve(this.jobs);
         });
     }
 

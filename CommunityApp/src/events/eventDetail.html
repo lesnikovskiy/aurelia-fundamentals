@@ -8,6 +8,7 @@
         <div class="col-md-11">
             <h3>${event.title}</h3>
             <h3>${event.dateTime | dateFormat}</h3>
+            <button click.delegate="editEvent(event)" type="button">Edit</button>
         </div>
     </div>
     <div class="row">
