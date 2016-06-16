@@ -1,12 +1,13 @@
 {
   "jspm": {
     "dependencies": {
-      "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-beta.1.2.1",
-      "aurelia-dialog": "npm:aurelia-dialog@^0.6.2",
+      "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-beta.2.0.0",
+      "aurelia-dialog": "npm:aurelia-dialog@^1.0.0-beta.1.0.1",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0-beta.2.0.0",
-      "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.1.2.5",
-      "aurelia-http-client": "npm:aurelia-http-client@^1.0.0-beta.1.2.2",
-      "aurelia-templating-resources": "npm:aurelia-templating-resources@^1.0.0-beta.1.2.6",
+      "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.2.0.0",
+      "aurelia-http-client": "npm:aurelia-http-client@^1.0.0-beta.2.0.0",
+      "aurelia-templating-resources": "npm:aurelia-templating-resources@^1.0.0-beta.3.0.3",
+      "aurelia-validation": "npm:aurelia-validation@^0.9.1",
       "bootstrap": "github:twbs/bootstrap@^3.3.6",
       "font-awesome": "npm:font-awesome@^4.6.1",
       "moment": "npm:moment@^2.13.0",
