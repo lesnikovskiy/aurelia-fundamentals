@@ -7,8 +7,7 @@ export function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
         .developmentLogging()
-        .plugin("aurelia-dialog")
-        .plugin("aurelia-validation");
+        .plugin("aurelia-dialog");
         
     aurelia.start().then(a => a.setRoot("shell"));
 }

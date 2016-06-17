@@ -19,11 +19,11 @@ System.config({
   map: {
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0-beta.2.0.0",
     "aurelia-dialog": "npm:aurelia-dialog@1.0.0-beta.1.0.1",
+    "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0-beta.2.0.1",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.2.0.0",
     "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.2.0.0",
     "aurelia-http-client": "npm:aurelia-http-client@1.0.0-beta.2.0.0",
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-beta.3.0.3",
-    "aurelia-validation": "npm:aurelia-validation@0.9.1",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
@@ -87,6 +87,9 @@ System.config({
     },
     "npm:aurelia-event-aggregator@1.0.0-beta.2.0.0": {
       "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.2.0.0"
+    },
+    "npm:aurelia-event-aggregator@1.0.0-beta.2.0.1": {
+      "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.2.0.1"
     },
     "npm:aurelia-framework@1.0.0-beta.2.0.0": {
       "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.2.0.6",
@@ -176,13 +179,6 @@ System.config({
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.2.0.0",
       "aurelia-path": "npm:aurelia-path@1.0.0-beta.2.0.0",
       "aurelia-task-queue": "npm:aurelia-task-queue@1.0.0-beta.2.0.0"
-    },
-    "npm:aurelia-validation@0.9.1": {
-      "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.2.0.6",
-      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.2.1.0",
-      "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.2.0.0",
-      "aurelia-task-queue": "npm:aurelia-task-queue@1.0.0-beta.2.0.0",
-      "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.3.0.2"
     },
     "npm:babel-runtime@5.8.38": {
       "process": "github:jspm/nodelibs-process@0.1.2"

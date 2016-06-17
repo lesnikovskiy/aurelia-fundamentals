@@ -5,6 +5,8 @@ import {BindingSignaler} from "aurelia-templating-resources";
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
 import {HttpClient as HttpFetch, json} from "aurelia-fetch-client";
+import {EventAggregator} from "aurelia-event-aggregator";
+import {NotificationPayload} from "common/NotificationPayload";
 
 function filterAndFormat(pastOrFuture, events) {
     var results = JSON.parse(JSON.stringify(events));
@@ -19,13 +21,22 @@ function filterAndFormat(pastOrFuture, events) {
     return results;
 }
 
-@inject(BindingSignaler, HttpClient, HttpFetch, "apiRoot")
+@inject(BindingSignaler, HttpClient, HttpFetch, "apiRoot", EventAggregator)
 export class DataRepository {
-    constructor(bindingSignaler, httpClient, httpFetch, apiRoot) {
+    constructor(bindingSignaler, httpClient, httpFetch, apiRoot, eventAggregator) {
         this.httpClient = httpClient;
         this.httpFetch = httpFetch;
         this.apiRoot = apiRoot;
+        this.eventAggregator = eventAggregator;
         setInterval(() => bindingSignaler.signal("check-freshness"), 1000);
+        setTimeout(() => this.backgroundNotificationReceived(this.eventAggregator), 5000);
+    }
+
+    backgroundNotificationReceived(ea) {
+        // You can subscribe on type NotificationPayload
+        //ea.publish(new NotificationPayload(moment().format("HH:mm:ss")));
+        // Or you can subscribe on string 
+        ea.publish("topic", new NotificationPayload(moment().format("HH:mm:ss")));
     }
 
     getEvents(pastOrFuture) {

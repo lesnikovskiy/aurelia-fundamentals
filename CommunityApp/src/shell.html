@@ -32,7 +32,9 @@
         </div>
     </nav>
     <div class="container">
-        <div>${timeIs & throttle: 1500}</div>
+        <!--<div>${timeIs & throttle: 1500}</div>-->
+        <div style="background: lightGreen" show.bind="notification"
+            click.delegate="clearNotification()">Notification received: ${notification}</div>
         <div class="col-xs-10">
             <router-view name="mainContent"></router-view>
         </div>
