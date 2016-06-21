@@ -24,7 +24,7 @@ export class Shell {
     configureRouter(config, router) {
         this.router = router;
         config.title = "Capital Area .NET User Group";
-        config.addPipelineStep("modelbind", TostNavResult);
+        config.addPipelineStep("authorize", TostNavResult);
         //config.options.pushState = true; // to remove # from URL
         config.map([
             {
