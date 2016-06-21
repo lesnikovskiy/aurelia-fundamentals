@@ -47,6 +47,13 @@ export class DataRepository {
                         let data = JSON.parse(result.response);
                         this.events = data.sort((a, b) => a.dateTime >= b.dateTime ? 1 : -1);
 
+                        this.events.forEach(item => {
+                            if (item.speaker === "Brian Noyes")
+                                item.isMvp = true;
+                            else
+                                item.isMvp = false;
+                        });
+
                         resolve(filterAndFormat(pastOrFuture, this.events));
                     });
             } else {

@@ -7,3 +7,16 @@
 .rbox + .rbox {
     margin-top: 0;
 }
+
+.watermark {
+    border-radius: 3px;
+    background: #3ab174;
+    color:#fff;
+    padding: 10px 10px;
+    font-size: .8em;
+    font-weight: 400;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    opacity: 0.5;
+}

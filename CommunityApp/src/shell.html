@@ -1,15 +1,10 @@
 <template>
     <require from="bootstrap/css/bootstrap.css"></require>
     <require from="common/nav-bar"></require>
-    <navigation-bar router.bind="router">
-        <!--<template replace-part="logo">
-            <div>CapArea.net</div>
-        </template>-->
-    </navigation-bar>
+    <navigation-bar router.bind="router"></navigation-bar>
     <div class="container">
         <!--<div>${timeIs & throttle: 1500}</div>-->
-        <div style="background: lightGreen" show.bind="notification"
-            click.delegate="clearNotification()">Notification received: ${notification}</div>
+        <div style="background: lightGreen" show.bind="notification" click.delegate="clearNotification()">Notification received: ${notification}</div>
         <div class="col-xs-10">
             <router-view name="mainContent"></router-view>
         </div>
