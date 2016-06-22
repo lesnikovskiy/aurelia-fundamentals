@@ -1,4 +1,12 @@
 <template>
+    <require from="common/itemsControl2"></require>
+    <div items-control2.bind="jobs">
+        <div class="rbox">
+            <h2>${title}</h2>
+            <div>${description}</div>
+        </div>
+    </div>
+
     <h3>Job Listings</h3>
     <button type="button" click.delegate="addJob()">
         <img src="images/Add-New.png">
