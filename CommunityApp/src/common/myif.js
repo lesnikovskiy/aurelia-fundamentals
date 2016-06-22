@@ -6,7 +6,7 @@ import {BoundViewFactory, ViewSlot, customAttribute, templateController, inject}
 export class If {
     constructor(viewFactory, viewSlot) {
         this.viewFactory = viewFactory;
-        this.ViewSlot = viewSlot;
+        this.viewSlot = viewSlot;
         this.showing = false;
     }
 

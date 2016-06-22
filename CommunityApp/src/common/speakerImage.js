@@ -14,12 +14,10 @@ export class SpeakerImage {
 	}
 
 	imageNameChanged(newValue) {
-		debugger
 		this.element.src = `images/speakers/${newValue}`;
 	}
 
 	isMvpChanged(newValue) {
-		debugger
 		if (newValue) {
 			let el = document.createElement("div");
 			el.innerHTML = "MVP";
