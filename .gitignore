@@ -14,5 +14,7 @@ CommunityApp/jspm_packages
 CommunityApp/node_modules
 CommunitAppDataBinding/jspm_packages
 CommunitAppDataBinding/node_modules
+Scaffolding/jspm_packages
+Scaffolding/node_modules
 jsenvdemo
 nav-skel
